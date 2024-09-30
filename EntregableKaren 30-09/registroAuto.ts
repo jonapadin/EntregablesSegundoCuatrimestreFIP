@@ -19,26 +19,31 @@ export class RegistroAutomotor {
         this.autos.push(auto);
     }
 
-    public eliminarAuto(auto: Auto): void {
-        const index = this.autos.indexOf(auto);
+    public eliminarAuto(patente: string): void {
+        const index = this.autos.findIndex(a => a.getPatente() === patente);
         if (index !== -1) {
             this.autos.splice(index, 1);
+            console.log(`El auto con patente ${patente} fue eliminado.`);
+        } else {
+            console.log(`No se encontró un auto con la patente ${patente}.`);
         }
     }
 
-    public modificarAuto(auto: Auto, marca?: string, modelo?: string, motor?: string, patente?: string): void {
-        const index = this.autos.indexOf(auto);
-        if (index !== -1) {
-            if (marca) this.autos[index].setMarca(marca);
-            if (modelo) this.autos[index].setModelo(modelo);
-            if (motor) this.autos[index].setMotor(motor);
-            if (patente) this.autos[index].setPatente(patente);
+    public modificarAuto(patente: string, marca?: string, modelo?: string, motor?: string): void {
+        const auto = this.autos.find(a => a.getPatente() === patente);
+        if (auto) {
+            if (marca) auto.setMarca(marca);
+            if (modelo) auto.setModelo(modelo);
+            if (motor) auto.setMotor(motor);
+            console.log(`El auto con patente ${patente} fue modificado.`);
+        } else {
+            console.log(`No se encontró un auto con la patente ${patente}.`);
         }
-    }
+    }    
 
-    public darDeBajaAuto(auto: Auto): void {
-        console.log(`El auto con patente ${auto.getPatente()} fue dado de baja`);
-        this.eliminarAuto(auto);
+    public darDeBajaAuto(patente: string): void {
+        console.log(`El auto con patente ${patente} fue dado de baja.`);
+        this.eliminarAuto(patente);
     }
 
     // Metodos para Camion
@@ -47,26 +52,31 @@ export class RegistroAutomotor {
         this.camiones.push(camion);
     }
 
-    public eliminarCamion(camion: Camion): void {
-        const index = this.camiones.indexOf(camion);
+    public eliminarCamion(patente: string): void {
+        const index = this.camiones.findIndex(c => c.getPatente() === patente);
         if (index !== -1) {
             this.camiones.splice(index, 1);
+            console.log(`El camión con patente ${patente} fue eliminado.`);
+        } else {
+            console.log(`No se encontró un camión con la patente ${patente}.`);
         }
     }
 
-    public modificarCamion(camion: Camion, marca?: string, modelo?: string, motor?: string, patente?: string): void {
-        const index = this.camiones.indexOf(camion);
-        if (index !== -1) {
-            if (marca) this.camiones[index].setMarca(marca);
-            if (modelo) this.camiones[index].setModelo(modelo);
-            if (motor) this.camiones[index].setMotor(motor);
-            if (patente) this.camiones[index].setPatente(patente);
+    public modificarCamion(patente: string, marca?: string, modelo?: string, motor?: string): void {
+        const camion = this.camiones.find(c => c.getPatente() === patente);
+        if (camion) {
+            if (marca) camion.setMarca(marca);
+            if (modelo) camion.setModelo(modelo);
+            if (motor) camion.setMotor(motor);
+            console.log(`El camión con patente ${patente} fue modificado.`);
+        } else {
+            console.log(`No se encontró un camión con la patente ${patente}.`);
         }
     }
 
-    public darDeBajaCamion(camion: Camion): void {
-        console.log(`El camion con patente ${camion.getPatente()} fue dado de baja`);
-        this.eliminarCamion(camion);
+    public darDeBajaCamion(patente: string): void {
+        console.log(`El camión con patente ${patente} fue dado de baja.`);
+        this.eliminarCamion(patente);
     }
 
     // Me3todos para Moto
@@ -75,25 +85,30 @@ export class RegistroAutomotor {
         this.motos.push(moto);
     }
 
-    public eliminarMoto(moto: Moto): void {
-        const index = this.motos.indexOf(moto);
+    public eliminarMoto(patente: string): void {
+        const index = this.motos.findIndex(m => m.getPatente() === patente);
         if (index !== -1) {
             this.motos.splice(index, 1);
+            console.log(`La moto con patente ${patente} fue eliminada.`);
+        } else {
+            console.log(`No se encontró una moto con la patente ${patente}.`);
         }
     }
 
-    public modificarMoto(moto: Moto, marca?: string, modelo?: string, motor?: string, patente?: string): void {
-        const index = this.motos.indexOf(moto);
-        if (index !== -1) {
-            if (marca) this.motos[index].setMarca(marca);
-            if (modelo) this.motos[index].setModelo(modelo);
-            if (motor) this.motos[index].setMotor(motor);
-            if (patente) this.motos[index].setPatente(patente);
+    public modificarMoto(patente: string, marca?: string, modelo?: string, motor?: string): void {
+        const moto = this.motos.find(m => m.getPatente() === patente);
+        if (moto) {
+            if (marca) moto.setMarca(marca);
+            if (modelo) moto.setModelo(modelo);
+            if (motor) moto.setMotor(motor);
+            console.log(`La moto con patente ${patente} fue modificada.`);
+        } else {
+            console.log(`No se encontró una moto con la patente ${patente}.`);
         }
     }
 
-    public darDeBajaMoto(moto: Moto): void {
-        console.log(`La moto con patente ${moto.getPatente()} fue dada de baja`);
-        this.eliminarMoto(moto);
+    public darDeBajaMoto(patente: string): void {
+        console.log(`La moto con patente ${patente} fue dada de baja.`);
+        this.eliminarMoto(patente);
     }
 }

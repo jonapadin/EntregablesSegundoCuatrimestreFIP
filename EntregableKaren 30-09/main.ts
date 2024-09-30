@@ -27,18 +27,18 @@ console.log("Motos en el registro:", motos);
 console.log("Camiones en el registro:", camiones);
 
 // Comprobamos que se puede modificar y chequeamos que un parametro no sea obligatorio funcione
-registro.modificarAuto(auto1, undefined, "208 GT");
+registro.modificarAuto("AF601EP", undefined, "208 GT");
 
 // comprobamos que se puede eliminar, en este caso el camion1
-registro.eliminarCamion(camion1);
+registro.eliminarCamion("AG103QW");
 
 //Mosstramos como quedaron los Array despues de modificar y eliminar
 console.log("Lista de autos después de modificación:", autos);
 console.log("Lista de camiones después de eliminación:", camiones);
 console.log("Lista de motos en el registro:", motos);
 
-// Comprobamos que el metodo para eliminar funciona
-registro.darDeBajaMoto(moto1);
+// Comprobamos que el metodo para dar de baja "eliminar" funciona
+registro.darDeBajaMoto("AWP123");
 
 // Mostramos como quedaron finalmente los Array
 console.log("Estado final del registro:");
