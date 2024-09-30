@@ -13,12 +13,13 @@ export class RegistroAutomotor {
         this.motos = motos;
     }
 
-    // Metodos para Auto, !== parq que no sea igual a -1, es decir que exista, ? par a indicar que no es obligatorio
+    // Metodos para Auto
     public añadirAuto(marca: string, modelo: string, motor: string, patente: string): void {
         let auto = new Auto(marca, modelo, motor, patente);
         this.autos.push(auto);
     }
 
+    //!== parq que no sea igual a -1, es decir que exista
     public eliminarAuto(patente: string): void {
         const index = this.autos.findIndex(a => a.getPatente() === patente);
         if (index !== -1) {
@@ -29,6 +30,7 @@ export class RegistroAutomotor {
         }
     }
 
+    //? par a indicar que no es obligatorio
     public modificarAuto(patente: string, marca?: string, modelo?: string, motor?: string): void {
         const auto = this.autos.find(a => a.getPatente() === patente);
         if (auto) {
