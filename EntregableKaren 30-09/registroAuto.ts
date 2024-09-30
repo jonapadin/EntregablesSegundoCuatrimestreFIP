@@ -24,9 +24,9 @@ export class RegistroAutomotor {
         const index = this.autos.findIndex(a => a.getPatente() === patente);
         if (index !== -1) {
             this.autos.splice(index, 1);
-            console.log(`El auto con patente ${patente} fue eliminado.`);
+            console.log(`El auto con patente ${patente} fue eliminado`);
         } else {
-            console.log(`No se encontró un auto con la patente ${patente}.`);
+            console.log(`No se encontró un auto con la patente ${patente}`);
         }
     }
 
@@ -37,14 +37,14 @@ export class RegistroAutomotor {
             if (marca) auto.setMarca(marca);
             if (modelo) auto.setModelo(modelo);
             if (motor) auto.setMotor(motor);
-            console.log(`El auto con patente ${patente} fue modificado.`);
+            console.log(`El auto con patente ${patente} fue modificado`);
         } else {
-            console.log(`No se encontró un auto con la patente ${patente}.`);
+            console.log(`No se encontró un auto con la patente ${patente}`);
         }
     }    
 
     public darDeBajaAuto(patente: string): void {
-        console.log(`El auto con patente ${patente} fue dado de baja.`);
+        console.log(`El auto con patente ${patente} fue dado de baja`);
         this.eliminarAuto(patente);
     }
 
@@ -58,9 +58,9 @@ export class RegistroAutomotor {
         const index = this.camiones.findIndex(c => c.getPatente() === patente);
         if (index !== -1) {
             this.camiones.splice(index, 1);
-            console.log(`El camión con patente ${patente} fue eliminado.`);
+            console.log(`El camión con patente ${patente} fue eliminado`);
         } else {
-            console.log(`No se encontró un camión con la patente ${patente}.`);
+            console.log(`No se encontró un camión con la patente ${patente}`);
         }
     }
 
@@ -70,14 +70,14 @@ export class RegistroAutomotor {
             if (marca) camion.setMarca(marca);
             if (modelo) camion.setModelo(modelo);
             if (motor) camion.setMotor(motor);
-            console.log(`El camión con patente ${patente} fue modificado.`);
+            console.log(`El camión con patente ${patente} fue modificado`);
         } else {
-            console.log(`No se encontró un camión con la patente ${patente}.`);
+            console.log(`No se encontró un camión con la patente ${patente}`);
         }
     }
 
     public darDeBajaCamion(patente: string): void {
-        console.log(`El camión con patente ${patente} fue dado de baja.`);
+        console.log(`El camión con patente ${patente} fue dado de baja`);
         this.eliminarCamion(patente);
     }
 
@@ -91,9 +91,9 @@ export class RegistroAutomotor {
         const index = this.motos.findIndex(m => m.getPatente() === patente);
         if (index !== -1) {
             this.motos.splice(index, 1);
-            console.log(`La moto con patente ${patente} fue eliminada.`);
+            console.log(`La moto con patente ${patente} fue eliminada`);
         } else {
-            console.log(`No se encontró una moto con la patente ${patente}.`);
+            console.log(`No se encontró una moto con la patente ${patente}`);
         }
     }
 
@@ -103,14 +103,14 @@ export class RegistroAutomotor {
             if (marca) moto.setMarca(marca);
             if (modelo) moto.setModelo(modelo);
             if (motor) moto.setMotor(motor);
-            console.log(`La moto con patente ${patente} fue modificada.`);
+            console.log(`La moto con patente ${patente} fue modificada`);
         } else {
-            console.log(`No se encontró una moto con la patente ${patente}.`);
+            console.log(`No se encontró una moto con la patente ${patente}`);
         }
     }
 
     public darDeBajaMoto(patente: string): void {
-        console.log(`La moto con patente ${patente} fue dada de baja.`);
+        console.log(`La moto con patente ${patente} fue dada de baja`);
         this.eliminarMoto(patente);
     }
 }
