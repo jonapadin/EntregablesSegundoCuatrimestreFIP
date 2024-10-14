@@ -8,18 +8,15 @@ let luchador = new Luchador('Aragorn');
 
 let arquero = new Arquero('Legolas');
 
-console.log("Personaje:", mago);
-console.log("Personaje:", luchador);
-console.log("Personaje:", arquero);
+mago.verAtributos();
+luchador.verAtributos();
+arquero.verAtributos()
 
 mago.bolaDeFuego();
-console.log("Personaje:", mago);
 
 luchador.golpeDeEspada();
 luchador.bloqueo();
 luchador.ataqueBasico();
-console.log("Personaje:", luchador);
 
 arquero.flecha();
 arquero.esquive();
-console.log("Personaje:", arquero);
