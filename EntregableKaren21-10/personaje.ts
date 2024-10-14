@@ -29,6 +29,6 @@ export abstract class Personaje {
     }
 
     verAtributos(): void {
-        console.log(`${this.nombre} | Nivel: ${this.nivel}, Puntos de vida: ${this.puntosDeVida}, Fuerza: ${this.fuerza}, Inteligencia: ${this.inteligencia}, Agilidad: ${this.agilidad}`);
+        console.log(`${this.nombre}: Nivel: ${this.nivel}, Puntos de vida: ${this.puntosDeVida}, Fuerza: ${this.fuerza}, Inteligencia: ${this.inteligencia}, Agilidad: ${this.agilidad}`);
     }
 }
