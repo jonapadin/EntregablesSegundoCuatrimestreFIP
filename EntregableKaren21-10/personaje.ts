@@ -1,34 +1,54 @@
-export abstract class Personaje {
-   protected nombre: string;
-   protected nivel: number;
-   protected puntosDeVida : number;
-   protected fuerza : number;
-   protected inteligencia : number;
-   protected agilidad : number;
+import { Ataque} from "./ataques/Ataque";
 
-    constructor(nombre: string, puntosDeVida: number, fuerza: number, inteligencia: number, agilidad: number) {
+export class Personaje {
+    protected nombre: string;
+    protected nivel: number;
+    protected puntosDeVida: number;
+    protected ataque: Ataque;
+
+    constructor(nombre: string) {
         this.nombre = nombre;
         this.nivel = 1;
-        this.puntosDeVida = puntosDeVida;
-        this.fuerza = fuerza;
-        this.inteligencia = inteligencia;
-        this.agilidad = agilidad;
+        this.puntosDeVida = 100;
+        this.ataque = new Ataque();
+    }
+    public getNombre(): string {
+        return this.nombre;
     }
 
-    abstract ataqueBasico(): void 
+    public getNivel(): number {
+        return this.nivel;
+    }
 
-    abstract defender(): void 
-    
+    public getPuntosDeVida(): number {
+        return this.puntosDeVida;
+    }
 
-    subirNivel(): void {
+    public setPuntosDeVida(puntosDeVida: number): void {
+        if (puntosDeVida < 0) {
+            this.puntosDeVida = 0;
+        } else if (puntosDeVida > 200) {
+            this.puntosDeVida = 200;
+        } else {
+            this.puntosDeVida = puntosDeVida;
+        }
+    }
+
+    public subirNivel(): void {
         this.nivel++;
-        this.fuerza += 5;
-        this.inteligencia += 5;
-        this.agilidad += 5;
         console.log(`${this.nombre} ha subido al nivel ${this.nivel}!`);
     }
-
-    verAtributos(): void {
-        console.log(`${this.nombre}: Nivel: ${this.nivel}, Puntos de vida: ${this.puntosDeVida}, Fuerza: ${this.fuerza}, Inteligencia: ${this.inteligencia}, Agilidad: ${this.agilidad}`);
+    
+    public atacar(): number {
+        return this.ataque.atacar();
     }
+
+    public defender(): string {
+        return `${this.nombre} se está defendiendo.`;
+    }
+
+    public setAtaque(ataque: Ataque): void {
+        this.ataque = ataque;
+    }
+
 }

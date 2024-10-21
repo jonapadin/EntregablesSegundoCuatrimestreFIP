@@ -1,25 +1,33 @@
 import { Personaje } from "./personaje";
 
 export class Arquero extends Personaje{
-    protected destreza : number;
+    protected veneno : number = 5;
+    protected bloqueo:number=30;
+    protected energia:number = 80
+    
     constructor(nombre:string){
-        super(nombre, 100, 50, 15, 100);
-        this.destreza = 50
+        super(nombre);
     }
 
-    ataqueBasico(): void {
-        console.log(`${this.nombre} realizó un ataque basico!`);
+    public atacar(): number {
+        if(this.veneno>0) {
+            this.veneno--;
+            return this.ataque.atacar() * this.veneno;
+        }
+        return this.ataque.atacar();
+    }
+    public addVeneno():void{
+        if(this.veneno<5) {
+            this.veneno++;
+        }
     }
 
-    defender(): void {
-        console.log(`${this.nombre} se está defendiendo!`)
-    }
-
-    flecha() : void{
-        console.log(`${this.nombre} lanzó una flecha ocasionando ${this.agilidad} de daño!`)
-    }
-
-    esquive() : void{
-        console.log(`${this.nombre} esquivó ${this.destreza} de daño!`)
-    }
+    public defender(): string{
+        if (this.energia >= 20) {
+            this.energia -= 20;
+            return `Te mueves agilmente y logras esquivar ${this.bloqueo} de daño`
+        } else {
+            return "No hay suficiente energia!"
+        }
+    }  
 }

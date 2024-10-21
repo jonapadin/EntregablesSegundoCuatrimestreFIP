@@ -1,25 +1,33 @@
 import { Personaje } from "./personaje";
 
 export class Luchador extends Personaje{
-    protected escudo : number;
+    protected escudo : number = 30;
+    protected fuerza : number = 75;
+    protected multiplicador: number = 1.25;
+
     constructor(nombre:string){
-        super(nombre, 140, 100, 15, 50);
-        this.escudo = 50;
+        super(nombre);
     }
 
-    ataqueBasico(): void {
-        console.log(`${this.nombre} realizó un ataque basico!`);
+    public atacar(): number {
+        if(this.escudo>60){
+            this.escudo+= 5;
+            return this.ataque.atacar() * this.multiplicador;
+    } else{
+        return this.ataque.atacar();
+    }}
+
+    public defender(): string {
+        if(this.escudo==100){
+            this.escudo=0;
+            return `Bloqueo! ningun daño recibido`;
+        }else
+        return `${this.nombre} se está defendiendo.`;
     }
 
-    defender(): void {
-        console.log(`${this.nombre} se está defendiendo!`)
-    }
-
-    golpeDeEspada() : void{
-        console.log(`${this.nombre} golpeo con su espada realizando ${this.fuerza} de daño!`)
-    }
-
-    bloqueo() : void{
-        console.log(`${this.nombre} bloqueo con su escudo ${this.escudo} de daño!`)
+    public setFuerza(fuerza:number):void{
+        if(fuerza>=0&&fuerza<100) {
+            this.fuerza = fuerza;
+        }
     }
 }

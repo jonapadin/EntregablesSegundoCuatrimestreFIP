@@ -1,29 +1,39 @@
 import { Personaje } from './personaje';
-
+import { EvolucionMago } from './magoEvolucionado';
 
 export class Mago extends Personaje {
-    protected mana: number;
+    protected mana: number = 100;
+    protected inteligencia : number = 75;
+    private multiplicador : number = 1.25;
+    protected bloqueo:number=30;
 
     constructor(nombre: string) {
-        super(nombre, 80, 10, 100, 40);
-        this.mana = 100;
+        super(nombre);
     }
 
-
-    ataqueBasico(): void {
-        console.log(`${this.nombre} realizó un ataque basico!`);
-    }
-
-    defender(): void {
-        console.log(`${this.nombre} se está defendiendo!`)
-    }
-
-    bolaDeFuego(): void {
+    public atacar(): number {
         if (this.mana >= 20) {
             this.mana -= 20;
-            console.log(`${this.nombre} ha lanzado una bola de fuego ocasionando ${this.inteligencia} de daño! Mana restante: ${this.mana}`);
+            return this.ataque.atacar()* this.multiplicador;
         } else {
-            console.log(`No hay suficiente mana!`);
+            return this.ataque.atacar()
+        }
+    }
+
+    public defender(): string{
+        if (this.mana >= 20) {
+            this.mana -= 20;
+            return `Unas tenues llamas envuelven el cuerpo de ${this.nombre} mientras dura el conjuro, bloqueando ${this.bloqueo} de daño`
+        }
+           
+        else {
+            return "No hay suficiente mana!"
+        }
+    }
+
+    public setInteligencia(inteligencia:number): void{
+        if(inteligencia>=0&&inteligencia<100) {
+            this.inteligencia = inteligencia;
         }
     }
 }
